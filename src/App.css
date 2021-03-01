@@ -1,0 +1,118 @@
+h1
+{
+	margin: 0;
+	padding: 0.5em;
+}
+
+svg.icon
+{
+    height: 18px;
+}
+
+.App
+{
+	text-align: center;
+	background: url(https://static.playoverwatch.com/img/crystal-candy-bg-top-e64823cff8.jpg) no-repeat top,url(https://static.playoverwatch.com/img/crystal-candy-bg-bottom-00cdaf6844.jpg) no-repeat bottom;
+}
+
+.group
+{
+	padding-bottom: 15px;
+}
+
+.groupname
+{
+	text-align: left;
+    padding: 0;
+    margin: 0;
+    padding-left: 32px;
+	background: linear-gradient(
+		125deg,
+		orange 0px 100px,
+		transparent 50%
+	);
+	background-repeat: no-repeat;
+}
+
+.hero
+{
+	display: inline-block;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+img.portrait 
+{
+	display: block;
+	height: 128px;
+	width: auto;
+}
+
+.colouredboxes
+{
+	display: block;
+}
+
+.colouredboxes .colourbox-container
+{
+	display: inline-block;
+	width: 100px;
+}
+
+.colourbox
+{
+	display: block;
+	box-sizing: border-box;
+	height: 25px;
+	border: 2px solid black;
+	cursor: pointer;
+}
+
+.colourbox:not(:first-child)
+{
+	margin-top: 5px;
+}
+
+.text.creamy-red
+{
+	color: #ed1c24;
+}
+
+.text.creamy-blue
+{
+	color: #2e1fb6;
+}
+
+.text.creamy-purple
+{
+	color: #924192;
+}
+
+.text.creamy-orange
+{
+	color: #ff8040;
+}
+
+.bg.creamy-red
+{
+	background-color: #ed1c24;
+	color: #ed1c24;
+}
+
+.bg.creamy-blue
+{
+	background-color: #2e1fb6;
+	color: #2e1fb6;
+}
+
+.bg.creamy-purple
+{
+	background-color: #924192;
+	color: #924192;
+}
+
+.bg.creamy-orange
+{
+	background-color: #ff8040;
+	color: #ff8040;
+}
