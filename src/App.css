@@ -57,6 +57,7 @@ img.portrait
 {
 	display: inline-block;
 	width: 100px;
+	cursor: pointer;
 }
 
 .colourbox

@@ -270,7 +270,8 @@ function App()
 	return (
 		<div className="App">
 			<header>
-				<h1>Overwatch Hero Ranker</h1>
+				<h1>Overwatch Hero Pool</h1>
+				<p>Click one of the boxes below to start labeling your hero pool</p>
 			</header>
 			<section>
 				<ColourBoxes />
@@ -279,7 +280,7 @@ function App()
 				{groups}
 			</section>
 			<footer>
-				<h2>Made by: <a href="www.twitch.tv/mal1t1a">Mal1t1a</a></h2>
+				<h2>Made by: <a href="www.twitch.tv/mal1t1a">Mal1t1a</a> with <a href="https://reactjs.org/">React</a></h2>
 			</footer>
 		</div>
 	);
