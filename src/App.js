@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import html2canvas from 'html2canvas';
 
 var colourtypes = {
 	"selected": "Selected",
@@ -265,25 +266,72 @@ for (var i = 0; i < heroes.length; i++)
 	groups.push(newgroup);
 }
 
-function App()
+class App extends React.Component
 {
-	return (
-		<div className="App">
-			<header>
-				<h1>Overwatch Hero Pool</h1>
-				<p>Click one of the boxes below to start labeling your hero pool</p>
-			</header>
-			<section>
-				<ColourBoxes />
-			</section>
-			<section>
-				{groups}
-			</section>
-			<footer>
-				<h2>Made by: <a href="https://www.twitch.tv/mal1t1a">Mal1t1a</a> with <a href="https://reactjs.org/">React</a></h2>
-			</footer>
-		</div>
-	);
+	constructor(props)
+	{
+		super (props);
+	}
+
+	onCaptureClicked()
+	{
+		document.querySelector("html").classList.add("hide-scrollbar");
+		html2canvas(document.querySelector(".App"), {x: 0, y: 0}).then(canvas => {
+			document.querySelector("html").classList.remove("hide-scrollbar");
+			
+			var newdiv = document.createElement("div");
+			var closebutton = document.createElement("img");
+			closebutton.className = "closeshot";
+			closebutton.src = "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xOSA2LjQxTDE3LjU5IDUgMTIgMTAuNTkgNi40MSA1IDUgNi40MSAxMC41OSAxMiA1IDE3LjU5IDYuNDEgMTkgMTIgMTMuNDEgMTcuNTkgMTkgMTkgMTcuNTkgMTMuNDEgMTJ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo=";
+			closebutton.addEventListener("click", (e) => {
+				newdiv.remove();
+			});
+			newdiv.className = "saveshot";
+
+			canvas.style.width = null;
+			canvas.style.height = null;
+			canvas.style.opacity = 0;
+			canvas.style.transform = "scale(0)";
+
+			newdiv.appendChild(closebutton);
+			newdiv.appendChild(canvas);
+			newdiv.addEventListener("click", (e) => {
+				newdiv.remove();
+			});
+			document.body.appendChild(newdiv);
+			
+			setTimeout(() => {
+				canvas.style.opacity = null;
+				canvas.style.transform = null;
+			}, 1);
+		});
+	}
+
+	render()
+	{
+		return (
+			<div className="App">
+				<div className="App-Content">
+					<header>
+						<h1>Overwatch Hero Pool</h1>
+						<p>Click one of the boxes below to start labeling your hero pool</p>
+					</header>
+					<section>
+						<ColourBoxes />
+					</section>
+					<section>
+						{groups}
+					</section>
+					<footer>
+						<h2>Made by: <a href="https://www.twitch.tv/mal1t1a">Mal1t1a</a> with <a href="https://reactjs.org/">React</a></h2>
+					</footer>
+				</div>
+				<div data-html2canvas-ignore="true" className="screenshot" onClick={this.onCaptureClicked}>
+					<img src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMuMiIvPgogICAgPHBhdGggZD0iTTkgMkw3LjE3IDRINGMtMS4xIDAtMiAuOS0yIDJ2MTJjMCAxLjEuOSAyIDIgMmgxNmMxLjEgMCAyLS45IDItMlY2YzAtMS4xLS45LTItMi0yaC0zLjE3TDE1IDJIOXptMyAxNWMtMi43NiAwLTUtMi4yNC01LTVzMi4yNC01IDUtNSA1IDIuMjQgNSA1LTIuMjQgNS01IDV6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo=" />
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;

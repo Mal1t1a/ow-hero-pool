@@ -4,6 +4,11 @@ h1
 	padding: 0.5em;
 }
 
+footer
+{
+	padding-bottom:10px;
+}
+
 svg.icon
 {
     height: 18px;
@@ -12,7 +17,7 @@ svg.icon
 .App
 {
 	text-align: center;
-	background: url(https://static.playoverwatch.com/img/crystal-candy-bg-top-e64823cff8.jpg) no-repeat top,url(https://static.playoverwatch.com/img/crystal-candy-bg-bottom-00cdaf6844.jpg) no-repeat bottom;
+	background: url('./static/crystal-candy-bg-top-e64823cff8.jpg') no-repeat top,url('./static/crystal-candy-bg-bottom-00cdaf6844.jpg') no-repeat bottom;
 }
 
 .group
@@ -116,4 +121,64 @@ img.portrait
 {
 	background-color: #ff8040;
 	color: #ff8040;
+}
+
+.screenshot
+{
+	position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    background-color: #a7b2d2;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -webkit-transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.screenshot img
+{
+	margin: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.saveshot
+{
+	background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 99999998;
+    width: 100%;
+    height: 100%;
+}
+
+.saveshot canvas
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    transform: scale(0.8);
+    z-index: 99999999;
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+	width: 100%;
+	height: 100%;
+	object-fit: scale-down;
+}
+
+.closeshot
+{
+	cursor: pointer;
+	position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
 }
