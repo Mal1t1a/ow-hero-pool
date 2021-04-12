@@ -277,8 +277,9 @@ class App extends React.Component
 	{
 		document.querySelector("html").classList.add("hide-scrollbar");
 		html2canvas(document.querySelector(".App"), {x: 0, y: 0}).then(canvas => {
+
 			document.querySelector("html").classList.remove("hide-scrollbar");
-			
+
 			var newdiv = document.createElement("div");
 			var closebutton = document.createElement("img");
 			closebutton.className = "closeshot";
@@ -299,6 +300,7 @@ class App extends React.Component
 				newdiv.remove();
 			});
 			document.body.appendChild(newdiv);
+			
 			
 			setTimeout(() => {
 				canvas.style.opacity = null;
